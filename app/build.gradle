@@ -1,18 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
-
+    compileSdkVersion 31
     defaultConfig {
         applicationId "ahmedadelismail.app"
         minSdkVersion 21
         //noinspection ExpiredTargetSdkVersion
-        targetSdkVersion 28
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
     }
     buildTypes {
@@ -24,12 +22,12 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation 'androidx.test.ext:junit:1.1.3'
+    androidTestCompile('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    api 'com.android.support:appcompat-v7:28.0.0'
-    api 'com.android.support.constraint:constraint-layout:1.0.2'
+    api 'androidx.appcompat:appcompat:1.4.1'
+    api 'androidx.constraintlayout:constraintlayout:2.1.3'
     testImplementation 'junit:junit:4.13.2'
     api project(':RxProperties')
 }
